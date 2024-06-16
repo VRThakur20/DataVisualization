@@ -17,7 +17,7 @@ app.use(cors()); // Enable CORS middleware
 
 // Define a sample route
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello from Express server!');
+  res.send('Hello from Van Raj Thakur');
 });
 
 // Route to fetch data from JSON files
