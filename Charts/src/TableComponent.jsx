@@ -3,40 +3,48 @@ import axios from "axios";
 import * as d3 from 'd3';
 import './TableComponent.css';
 
+// TableComponent to render a table using D3
 const TableComponent = () => {
+  // State to hold the JSON data fetched from the API
   const [jsonData, setJsonData] = useState(null);
+  // State to handle loading status
   const [loading, setLoading] = useState(true);
+  // Reference to the table element
   const tableRef = useRef();
 
+  // useEffect to fetch data when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Fetch data from the API
         const response = await axios.get('http://localhost:3000/fetchData');
-        setJsonData(response.data);
+        setJsonData(response.data); // Set the fetched data to state
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error); // Log any errors
       } finally {
-        setLoading(false);
+        setLoading(false); // Set loading to false after data fetch is complete
       }
     };
 
     fetchData();
   }, []);
 
+  // useEffect to render the table whenever jsonData changes
   useEffect(() => {
     if (jsonData) {
       const table = d3.select(tableRef.current);
-      table.selectAll('*').remove(); // Clear previous table if any
+      table.selectAll('*').remove(); // Clear previous table content if any
 
-      // Calculate totals
+      // Calculate total counts and ACV
       const totalCount = d3.sum(jsonData, d => d.count);
       const totalACV = d3.sum(jsonData, d => d.acv);
 
-      // Prepare data for the table
+      // Group data by closed fiscal quarter
       const groupedData = d3.group(jsonData, d => d.closed_fiscal_quarter);
       const quarters = Array.from(groupedData.keys());
       const customerTypes = ['Existing Customer', 'New Customer'];
 
+      // Prepare data for the table
       const tableData = [];
       quarters.forEach(quarter => {
         const quarterData = { quarter, types: {} };
@@ -86,7 +94,7 @@ const TableComponent = () => {
         const totalACVType = d3.sum(jsonData.filter(d => d.Cust_Type === type), d => d.acv);
         row.append('td').text(totalCountType);
         row.append('td').text(totalACVType.toFixed(2));
-        row.append('td').text(type === 'Existing Customer' ? '70%' : '30%');
+        row.append('td').text(type === 'Existing Customer' ? '70%' : '30%'); // Adjust percentage based on customer type
       });
 
       // Create totals row
@@ -102,10 +110,11 @@ const TableComponent = () => {
       });
       totalsRow.append('td').text(totalCount);
       totalsRow.append('td').text(totalACV.toFixed(2));
-      totalsRow.append('td').text('100%');
+      totalsRow.append('td').text('100%'); // Total percentage is always 100%
     }
-  }, [jsonData]);
+  }, [jsonData]); // Dependency array to trigger the effect when jsonData changes
 
+  // Render the table element
   return <table ref={tableRef} className="styled-table" />;
 };
 
