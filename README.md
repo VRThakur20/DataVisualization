@@ -46,17 +46,28 @@ This repository contains the Skygeni Charts App, which consists of a frontend (C
     Open http://localhost:5173 in your web browser.
 
 
+
+
+
+
  Below are the screenshots from the app:
 
 
 
 // Frontend of the app
+
+
+
  
 ![image](https://github.com/VRThakur20/SkyGeni/assets/91954371/336bce42-eb48-4306-bae6-e9cb0e7c845d)
 
 
 
-// Backend conatining the fetched JSON file
+// Backend containing the fetched JSON file
+
+
+
+
 
 - http://localhost:3000/fetchData0
 ![image](https://github.com/VRThakur20/SkyGeni/assets/91954371/c4ee36ce-b38a-469e-b1f4-f713ffaa5ba2)
