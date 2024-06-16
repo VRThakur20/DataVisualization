@@ -14,7 +14,7 @@ This repository contains the Skygeni Charts App, which consists of a frontend (C
 
    
    ```sh
-   cd skygeni-charts-app/Charts
+   cd SkyGeni/Charts
    npm install
 
    ```sh
