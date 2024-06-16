@@ -50,7 +50,7 @@ This repository contains the Skygeni Charts App, which consists of a frontend (C
 
 
 
- Below are the screenshots from the app:
+-- Below are the screenshots from the app:
 
 
 
