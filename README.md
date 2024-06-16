@@ -12,26 +12,32 @@ This repository contains the Skygeni Charts App, which consists of a frontend (C
    
 2. Install dependencies for both frontend and backend:
 
+   
+   ```sh
    cd skygeni-charts-app/Charts
    npm install
 
+   ```sh
    cd ../Backend2
    npm install
 
-3. Running the Backend:
+4. Running the Backend:
    
    Build and start the backend server:
 
+   ```sh
    cd Backend2
    npm run build
    npm run dev
 
    
-4. Running the Frontend:
+5. Running the Frontend:
 
    
     Start the frontend development server:
 
+
+    ```sh
     cd ../Charts
     npm run dev
 
