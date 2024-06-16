@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  word-break: break-word;
+
+}
+
+th {
+  background-color: #ffffff; 
+  color: rgb(48, 47, 47);
+}
+
+.quarter-2023-Q3, .quarter-2024-Q1, .total {
+  background-color: #3366cc; /* Darker blue */
+  color: white;
+}
+
+.quarter-2023-Q4, .quarter-2024-Q2 {
+  background-color: #3e7eff; /* Blue */
+  color: white;
+}
+
+.row-total th {
+  background-color: #003366;
+}
+
+.row-total td {
+  background-color: #f7fafc;
+  color: rgb(22, 22, 22);
+}
